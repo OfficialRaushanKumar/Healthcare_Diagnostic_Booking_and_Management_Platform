@@ -6,7 +6,7 @@
 
 Discover diagnostic centers, compare tests, and manage appointments in one place.
 
-**Made by Raushn Kumar**  
+**Made by Raushan Kumar**  
 SRM Institute of Science and Technology, Chennai
 
 </div>
