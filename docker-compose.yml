@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: medibook
+      POSTGRES_USER: medibook
+      POSTGRES_PASSWORD: medibook
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medibook -d medibook"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      # Inside Docker the DB host is the service name, not 127.0.0.1
+      DATABASE_URL: postgres://medibook:medibook@db:5432/medibook
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             python manage.py collectstatic --noinput &&
+             gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health/"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 15s
+
+volumes:
+  pgdata:

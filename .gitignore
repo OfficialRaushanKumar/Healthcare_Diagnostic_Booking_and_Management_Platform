@@ -1,0 +1,24 @@
+# secrets
+.env
+*.env.local
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+backend/staticfiles/*
+!backend/staticfiles/.gitkeep
+# node / expo
+node_modules/
+.expo/
+.expo-home/
+.git-initial-backup/
+dist/
+web-build/
+*.log
+# os / ide
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
