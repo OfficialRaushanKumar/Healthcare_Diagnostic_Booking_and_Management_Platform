@@ -37,6 +37,7 @@ export function WelcomeScreen() {
         <View style={{ position: 'absolute', width: 360, height: 360, borderRadius: 180, backgroundColor: '#E7FAF7', top: 470, left: -210, opacity: 0.7 }} />
       </View>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+        <View style={{ width: '100%', alignSelf: 'center' }}>
         <View style={{ width: '100%', maxWidth: 1320, alignSelf: 'center', paddingHorizontal: width < 600 ? 20 : 48 }}>
           <View style={{ minHeight: 88, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#E9EDF5' }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 11 }}>
@@ -52,8 +53,8 @@ export function WelcomeScreen() {
 
           <View style={{ alignItems: 'center', paddingTop: wide ? 62 : 42, paddingBottom: 35 }}>
             <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center', borderWidth: 1, borderColor: '#CBD8FF', backgroundColor: '#F0F4FF', borderRadius: 999, paddingHorizontal: 15, paddingVertical: 9 }}><View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: colors.teal }} /><Text style={{ color: colors.primary, fontFamily: 'Inter_600SemiBold', fontSize: 11, letterSpacing: 1.1 }}>YOUR HEALTH, ONE SIMPLE BOOKING</Text></View>
-            <Text accessibilityRole="header" style={{ color: colors.navy900, fontFamily: 'Inter_700Bold', fontSize: width > 1150 ? 65 : width > 700 ? 52 : width < 390 ? 35 : 40, lineHeight: width > 1150 ? 75 : width > 700 ? 62 : width < 390 ? 43 : 49, letterSpacing: width < 600 ? -1.5 : -2.5, textAlign: 'center', maxWidth: 1050, marginTop: 26 }}>Healthcare Diagnostic <Text nativeID="medibook-heading-gradient" style={{ color: colors.primary }}>Booking &amp; Management Platform</Text></Text>
-            <Text style={{ textAlign: 'center', color: colors.textMuted, fontFamily: 'Inter_400Regular', fontSize: width > 700 ? 18 : 15, lineHeight: width > 700 ? 29 : 24, maxWidth: 650, marginTop: 18 }}>Find trusted diagnostic centers, compare tests and book a time that works for you — all in one calm, secure place.</Text>
+            <Text accessibilityRole="header" style={{ color: colors.navy900, fontFamily: 'Inter_700Bold', fontWeight: '900', fontSize: width > 1150 ? 66 : width > 700 ? 56 : width < 390 ? 37 : 43, lineHeight: width > 1150 ? 78 : width > 700 ? 67 : width < 390 ? 46 : 53, letterSpacing: width < 600 ? -0.7 : -1.5, textAlign: 'center', maxWidth: 1120, marginTop: 26 }}>Healthcare Diagnostic{'\n'}<Text nativeID="medibook-heading-gradient" style={{ color: colors.primary, fontFamily: 'Inter_700Bold', fontWeight: '900' }}>Booking &amp; Management Platform</Text></Text>
+            <Text style={{ textAlign: 'center', color: colors.textMuted, fontFamily: 'Inter_400Regular', fontSize: width > 700 ? 18 : 15, lineHeight: width > 700 ? 29 : 24, maxWidth: 650, marginTop: 18 }}>Compare diagnostic tests and nearby centers, see available times, and book your visit in a few simple steps.</Text>
             <View style={{ flexDirection: width < 430 ? 'column' : 'row', gap: 12, marginTop: 27, width: width < 430 ? '100%' : undefined, justifyContent: 'center' }}>
               <Pressable onPress={() => nav.navigate('Register')} accessibilityRole="button" {...hoverHandlers('hero-cta')} style={({ pressed }) => [{ backgroundColor: colors.primary, minHeight: 58, borderRadius: 17, paddingHorizontal: 27, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12, ...elevation.raised, transform: [{ translateY: hovered === 'hero-cta' ? -3 : 0 }, { scale: pressed ? 0.985 : 1 }] }]}><Text style={{ color: colors.white, fontFamily: 'Inter_700Bold', fontSize: 16 }}>Get started</Text><Ionicons name="arrow-forward" size={19} color={colors.white} /></Pressable>
               <Pressable onPress={() => nav.navigate('Login')} accessibilityRole="button" {...hoverHandlers('sign-in')} style={({ pressed }) => [{ backgroundColor: colors.white, borderWidth: 1, borderColor: '#DDE4F0', minHeight: 58, borderRadius: 17, paddingHorizontal: 27, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, transform: [{ translateY: hovered === 'sign-in' ? -2 : 0 }, { scale: pressed ? 0.985 : 1 }] }]}><Text style={{ color: colors.navy900, fontFamily: 'Inter_600SemiBold', fontSize: 16 }}>I have an account</Text></Pressable>
@@ -96,10 +97,114 @@ export function WelcomeScreen() {
             </View>
           </View>
 
-          <View style={{ flexDirection: width < 600 ? 'column' : 'row', justifyContent: 'center', alignItems: 'center', gap: width < 600 ? 10 : 32, paddingVertical: 12, paddingBottom: 30 }}>
-            {[{ icon: 'shield-checkmark' as const, text: 'Secure booking' }, { icon: 'time' as const, text: 'Flexible appointments' }, { icon: 'heart' as const, text: 'Care that puts you first' }].map((item) => <View key={item.text} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}><Ionicons name={item.icon} size={16} color={colors.teal} /><Text style={{ color: colors.textMuted, fontFamily: 'Inter_500Medium', fontSize: 12 }}>{item.text}</Text></View>)}
+          <View style={{ width: '100%', maxWidth: 1050, alignSelf: 'center', paddingVertical: width < 600 ? 24 : 44, marginBottom: 18 }}>
+            <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 12, letterSpacing: 1.4, color: colors.teal }}>ONE PLACE FOR YOUR NEXT STEP</Text>
+            <Text style={{ fontFamily: 'Inter_700Bold', fontSize: width < 600 ? 30 : 40, lineHeight: width < 600 ? 38 : 50, color: colors.navy900, marginTop: 8 }}>Explore care with confidence.</Text>
+            <Text style={{ fontFamily: 'Inter_400Regular', fontSize: width < 600 ? 15 : 17, lineHeight: width < 600 ? 24 : 28, color: colors.textMuted, maxWidth: 760, marginTop: 12 }}>From routine lab work to imaging and preventive checkups, MediBook helps you understand your options and organize the details of a visit.</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 24 }}>
+              {[
+                { icon: 'flask-outline' as const, tint: colors.primary, bg: '#EEF2FF', title: 'Pathology', text: 'Browse blood work and other laboratory tests offered by diagnostic centers.' },
+                { icon: 'scan-outline' as const, tint: '#7448C8', bg: '#F2EDFC', title: 'Radiology', text: 'Explore imaging services and review center details before choosing.' },
+                { icon: 'shield-checkmark-outline' as const, tint: colors.teal, bg: '#E9F8F5', title: 'Preventive care', text: 'Find checkups designed to help you plan routine health screening.' },
+                { icon: 'pulse-outline' as const, tint: '#B56A16', bg: '#FFF4E4', title: 'General diagnostics', text: 'See a range of diagnostic services together in one searchable catalog.' },
+              ].map((item) => <View key={item.title} style={{ width: width < 600 ? '100%' : '48.5%', flexGrow: 1, minHeight: 160, flexDirection: 'row', gap: 15, padding: width < 600 ? 18 : 22, borderRadius: 20, backgroundColor: colors.white, borderWidth: 1, borderColor: '#E8EDF5', ...elevation.card }}>
+                <View style={{ width: 48, height: 48, flexShrink: 0, borderRadius: 15, backgroundColor: item.bg, alignItems: 'center', justifyContent: 'center' }}><Ionicons name={item.icon} size={24} color={item.tint} /></View>
+                <View style={{ flex: 1 }}><Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 18, color: colors.navy900 }}>{item.title}</Text><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, lineHeight: 22, color: colors.textMuted, marginTop: 8 }}>{item.text}</Text></View>
+              </View>)}
+            </View>
           </View>
-          <Text style={{ textAlign: 'center', color: '#9AA6B8', fontFamily: 'Inter_400Regular', fontSize: 11, paddingBottom: 22 }}>Demo platform · all centers and data are fictional</Text>
+
+          <View style={{ width: '100%', maxWidth: 1050, alignSelf: 'center', borderRadius: 26, backgroundColor: '#102B4B', padding: width < 600 ? 22 : 34, marginBottom: 28, overflow: 'hidden' }}>
+            <View pointerEvents="none" style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, right: -100, top: -160, backgroundColor: '#1769AA', opacity: 0.3 }} />
+            <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 12, letterSpacing: 1.3, color: '#8EE2D7' }}>A CLEARER BOOKING JOURNEY</Text>
+            <Text style={{ fontFamily: 'Inter_700Bold', fontSize: width < 600 ? 27 : 36, lineHeight: width < 600 ? 35 : 45, color: colors.white, marginTop: 8 }}>From search to scheduled.</Text>
+            <View style={{ flexDirection: width < 700 ? 'column' : 'row', gap: 14, marginTop: 22 }}>
+              {[
+                { n: '01', icon: 'search-outline' as const, title: 'Find the right service', text: 'Search by test name or browse by diagnostic category.' },
+                { n: '02', icon: 'business-outline' as const, title: 'Compare centers', text: 'Review available centers, location, service details and pricing.' },
+                { n: '03', icon: 'calendar-outline' as const, title: 'Choose a slot', text: 'Select an available appointment time and keep the booking details handy.' },
+              ].map((step) => <View key={step.n} style={{ flex: 1, minHeight: 170, padding: 18, borderRadius: 18, backgroundColor: 'rgba(255,255,255,0.08)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}><Ionicons name={step.icon} size={23} color="#8EE2D7" /><Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 13, color: '#9FB5D2' }}>{step.n}</Text></View>
+                <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 17, color: colors.white, marginTop: 18 }}>{step.title}</Text><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 13, lineHeight: 20, color: '#C0D1E5', marginTop: 7 }}>{step.text}</Text>
+              </View>)}
+            </View>
+            <Pressable onPress={() => nav.navigate('Register')} accessibilityRole="button" style={({ pressed }) => [{ alignSelf: 'flex-start', marginTop: 22, minHeight: 50, borderRadius: 14, paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#35B6A6' }, pressed && { opacity: 0.85, transform: [{ scale: 0.98 }] }]}><Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: colors.white }}>Start your booking</Text><Ionicons name="arrow-forward" size={17} color={colors.white} /></Pressable>
+          </View>
+
+          <View style={{ width: '100%', maxWidth: 1050, alignSelf: 'center', flexDirection: width < 700 ? 'column' : 'row', gap: 18, paddingVertical: 16, marginBottom: 16 }}>
+            <View style={{ flex: 1, padding: width < 600 ? 20 : 28, borderRadius: 22, backgroundColor: '#EEF3FF' }}><Ionicons name="person-circle-outline" size={28} color={colors.primary} /><Text style={{ fontFamily: 'Inter_700Bold', fontSize: 22, color: colors.navy900, marginTop: 10 }}>For patients</Text><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, lineHeight: 22, color: colors.textMuted, marginTop: 8 }}>Keep appointments organized, review your upcoming visits and find diagnostic services that fit your needs.</Text></View>
+            <View style={{ flex: 1, padding: width < 600 ? 20 : 28, borderRadius: 22, backgroundColor: '#EAF8F5' }}><Ionicons name="medkit-outline" size={28} color={colors.teal} /><Text style={{ fontFamily: 'Inter_700Bold', fontSize: 22, color: colors.navy900, marginTop: 10 }}>For care teams</Text><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, lineHeight: 22, color: colors.textMuted, marginTop: 8 }}>Staff can manage diagnostic services and appointments through dedicated team tools after signing in.</Text></View>
+          </View>
+
+          <View style={{ width: '100%', maxWidth: 1050, alignSelf: 'center', paddingTop: 26, paddingBottom: 42 }}>
+            <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 12, letterSpacing: 1.3, color: colors.teal }}>FROM FIRST SEARCH TO YOUR VISIT</Text>
+            <Text style={{ fontFamily: 'Inter_700Bold', fontSize: width < 600 ? 29 : 38, lineHeight: width < 600 ? 37 : 48, color: colors.navy900, marginTop: 8 }}>Know what to expect at every step.</Text>
+            <Text style={{ fontFamily: 'Inter_400Regular', fontSize: width < 600 ? 15 : 17, lineHeight: width < 600 ? 24 : 27, color: colors.textMuted, maxWidth: 760, marginTop: 11 }}>Booking details stay organized from the moment you start comparing services through the day you review your appointment.</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 23 }}>
+              {[
+                { icon: 'search-outline' as const, title: 'Before you book', text: 'Browse test categories, review center locations and opening hours, and compare listed service prices.' },
+                { icon: 'card-outline' as const, title: 'While booking', text: 'Choose a date and available time, confirm patient details, then review your booking summary and payment.' },
+                { icon: 'clipboard-outline' as const, title: 'After booking', text: 'Return to your appointments to check the visit time, booking reference, and current payment status.' },
+              ].map((item) => <View key={item.title} style={{ width: width < 600 ? '100%' : '31.5%', flexGrow: 1, minHeight: 178, padding: width < 600 ? 19 : 22, borderRadius: 20, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#E5EAF2', ...elevation.card }}>
+                <View style={{ width: 46, height: 46, borderRadius: 14, backgroundColor: '#E5F6F3', alignItems: 'center', justifyContent: 'center' }}><Ionicons name={item.icon} size={23} color="#0E8792" /></View>
+                <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 18, color: colors.navy900, marginTop: 15 }}>{item.title}</Text>
+                <Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, lineHeight: 22, color: colors.textMuted, marginTop: 7 }}>{item.text}</Text>
+              </View>)}
+            </View>
+          </View>
+
+          <View style={{ width: '100%', maxWidth: 1050, alignSelf: 'center', paddingBottom: 46 }}>
+            <Text style={{ fontFamily: 'Inter_700Bold', fontSize: width < 600 ? 28 : 36, color: colors.navy900, marginBottom: 17 }}>A few helpful details</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
+              {[
+                { q: 'Do I need an account to book?', a: 'Yes. Create an account to select a slot and keep your appointment information together.' },
+                { q: 'Can I choose a diagnostic center?', a: 'Yes. Browse centers and review their location, services and listed prices before selecting one.' },
+                { q: 'Where can I find a booking afterward?', a: 'Sign in and open Appointments to review upcoming visits, booking references and payment status.' },
+                { q: 'Is MediBook a medical advice service?', a: 'No. MediBook helps organize diagnostic bookings. Ask a qualified healthcare professional about tests and results.' },
+              ].map((item) => <View key={item.q} style={{ width: width < 700 ? '100%' : '48.5%', flexGrow: 1, padding: 18, borderRadius: 16, backgroundColor: '#F1F5FA', borderWidth: 1, borderColor: '#E7EDF5' }}>
+                <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: colors.navy900 }}>{item.q}</Text>
+                <Text style={{ fontFamily: 'Inter_400Regular', fontSize: 13, lineHeight: 21, color: colors.textMuted, marginTop: 7 }}>{item.a}</Text>
+              </View>)}
+            </View>
+          </View>
+        </View>
+
+        <View style={{ width: '100%', backgroundColor: '#0E8792', paddingVertical: width < 600 ? 42 : 58, paddingHorizontal: width < 600 ? 20 : 48, overflow: 'hidden' }}>
+          <View pointerEvents="none" style={{ position: 'absolute', width: 330, height: 330, borderRadius: 165, left: -170, bottom: -230, backgroundColor: '#FFFFFF', opacity: 0.06 }} />
+          <View pointerEvents="none" style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, right: -90, top: -190, backgroundColor: '#94F0DE', opacity: 0.2 }} />
+          <View style={{ width: '100%', maxWidth: 1320, alignSelf: 'center', alignItems: 'center' }}>
+            <Text style={{ fontFamily: 'Inter_700Bold', fontSize: width < 600 ? 30 : 42, lineHeight: width < 600 ? 38 : 52, color: colors.white, textAlign: 'center' }}>Make your next health check easier.</Text>
+            <Text style={{ fontFamily: 'Inter_400Regular', fontSize: width < 600 ? 15 : 18, lineHeight: width < 600 ? 24 : 29, color: '#DCE8FF', textAlign: 'center', maxWidth: 700, marginTop: 13 }}>Join MediBook to explore diagnostic services, compare centers, and keep your appointment details together in one place.</Text>
+            <View style={{ flexDirection: width < 430 ? 'column' : 'row', gap: 12, marginTop: 25, width: width < 430 ? '100%' : undefined }}>
+              <Pressable onPress={() => nav.navigate('Register')} accessibilityRole="button" style={({ pressed }) => [{ minHeight: 56, borderRadius: 16, paddingHorizontal: 27, backgroundColor: colors.white, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }, pressed && { opacity: 0.9, transform: [{ scale: 0.98 }] }]}><Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 16, color: '#0E7782' }}>Create your account</Text><Ionicons name="arrow-forward" size={18} color="#0E7782" /></Pressable>
+              <Pressable onPress={() => nav.navigate('Login')} accessibilityRole="button" style={({ pressed }) => [{ minHeight: 56, borderRadius: 16, paddingHorizontal: 27, borderWidth: 1, borderColor: 'rgba(255,255,255,0.45)', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }, pressed && { backgroundColor: 'rgba(255,255,255,0.12)' }]}><Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 16, color: colors.white }}>Sign in</Text></Pressable>
+            </View>
+          </View>
+        </View>
+
+        <View style={{ width: '100%', backgroundColor: '#0B2025', paddingHorizontal: width < 600 ? 20 : 48, paddingTop: width < 600 ? 38 : 54, paddingBottom: 25 }}>
+          <View style={{ width: '100%', maxWidth: 1320, alignSelf: 'center' }}>
+            <View style={{ flexDirection: width < 700 ? 'column' : 'row', gap: width < 700 ? 30 : 42, justifyContent: 'space-between', paddingBottom: 34 }}>
+              <View style={{ flex: 1.2, maxWidth: 340 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}><View style={{ width: 38, height: 38, borderRadius: 13, backgroundColor: '#0E8792', alignItems: 'center', justifyContent: 'center' }}><Ionicons name="medkit" size={21} color={colors.white} /></View><Text style={{ fontFamily: 'Inter_700Bold', fontSize: 20, color: colors.white }}>Medi<Text style={{ color: '#51C7B6' }}>Book</Text></Text></View>
+                <Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, lineHeight: 23, color: '#A8B9D3', marginTop: 16 }}>A diagnostic booking and management platform to help patients find services and centers, and help care teams organize appointments.</Text>
+              </View>
+              {[
+                { heading: 'PLATFORM', links: ['Browse diagnostics', 'Find a center', 'How booking works'] },
+                { heading: 'FOR YOU', links: ['Patient appointments', 'Care team tools', 'Create an account'] },
+                { heading: 'ACCOUNT', links: ['Sign in', 'Register', 'Demo information'] },
+              ].map((group) => <View key={group.heading} style={{ flex: 1, minWidth: 140, gap: 13 }}>
+                <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 12, letterSpacing: 1.2, color: '#7288AA', marginBottom: 3 }}>{group.heading}</Text>
+                {group.links.map((link) => <Pressable key={link} onPress={() => nav.navigate(link === 'Sign in' ? 'Login' : 'Register')} accessibilityRole="button"><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 14, color: '#B6C5DC' }}>{link}</Text></Pressable>)}
+              </View>)}
+            </View>
+            <View style={{ height: 1, backgroundColor: '#28434A' }} />
+            <View style={{ flexDirection: width < 700 ? 'column' : 'row', gap: 12, justifyContent: 'space-between', alignItems: width < 700 ? 'flex-start' : 'center', paddingTop: 19 }}>
+              <Text style={{ fontFamily: 'Inter_400Regular', fontSize: 12, lineHeight: 19, color: '#7288AA' }}>© 2026 MediBook · Healthcare Diagnostic Booking &amp; Management Platform · Demo only; centers and data are fictional.</Text>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>{['Diagnostic tests', 'Appointment booking', 'Care team tools'].map((tag) => <View key={tag} style={{ borderWidth: 1, borderColor: '#36545A', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 7 }}><Text style={{ fontFamily: 'Inter_400Regular', fontSize: 11, color: '#A7C3C4' }}>{tag}</Text></View>)}</View>
+            </View>
+          </View>
+        </View>
         </View>
       </ScrollView>
     </View>
